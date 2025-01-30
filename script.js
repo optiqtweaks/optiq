@@ -11,7 +11,7 @@ function generateUUID()
 		d += performance.now();
 	}
 	
-	var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c)
+	var uuid = 'encrypt-4xxx-xxxx-xxxx'.replace(/[x]/g, function(c)
 	{
 		var r = (d + Math.random()*16)%16 | 0;
 		d = Math.floor(d/16);
@@ -24,7 +24,4 @@ return uuid;
 /**
  * Generate new key and insert into input value
  */
-$( '#keygen' ).on('click',function()
-{
-	$( '#apikey' ).val( generateUUID() );
-});
+$( '#apikey' ).val( generateUUID() );
