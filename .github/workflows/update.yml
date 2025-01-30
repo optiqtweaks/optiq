@@ -2,7 +2,7 @@ name: Update File
 
 on:
   schedule:
-    - cron: "*/240 * * * *" # Runs every 5 minutes (adjust as needed)
+    - cron: "*/5 * * * *" # Runs every 5 minutes (adjust as needed)
 
 jobs:
   update-file:
