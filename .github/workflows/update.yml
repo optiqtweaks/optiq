@@ -28,4 +28,4 @@ jobs:
           git commit -m "Automated update with new key" || exit 0
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.COMET_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
