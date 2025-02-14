@@ -53,6 +53,14 @@
     <div id="message">Nice try, next time don't bypass!</div>
 
     <script>
+        function hideAllExceptMessage() {
+            const elements = document.body.children;
+            for (let element of elements) {
+                if (element.id !== 'message') {
+                    element.style.display = 'none';
+                }
+            }
+        }
         // Check if the referrer is empty or from the same domain
         if (!document.referrer || new URL(document.referrer).hostname === window.location.hostname) {
             // Show the message if there is no referrer or if it's from the same domain
