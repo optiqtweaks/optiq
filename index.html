@@ -54,21 +54,27 @@
 
     <script>
         function hideAllExceptMessage() {
-            const elements = document.body.children;
-            for (let element of elements) {
+            const bodyChildren = document.body.children;
+            // Loop through all body children and hide them except for the message
+            for (let element of bodyChildren) {
                 if (element.id !== 'message') {
                     element.style.display = 'none';
                 }
             }
         }
-        // Check if the referrer is empty or from the same domain
-        if (!document.referrer || new URL(document.referrer).hostname === window.location.hostname) {
-            // Hide all elements except the message
-            hideAllExceptMessage();
-            // Show the message
-            document.getElementById('message').style.display = 'block';
-        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the referrer is empty or from the same domain
+            if (!document.referrer || new URL(document.referrer).hostname === window.location.hostname) {
+                // Hide all elements except the message
+                hideAllExceptMessage();
+                // Show the message
+                document.getElementById('message').style.display = 'block';
+            }
+        });
+
     </script>
+
     <h2>Here is your key</h2>
     <input type="text" id="keyBox" readonly>
     <br>
@@ -104,16 +110,13 @@
     <script>
         function detectDevTools() {
             setInterval(() => {
-                // Try forcing debugger execution
-                (function () {
-                    const start = new Date();   
-                    // If execution takes too long, DevTools is open
-                    if (end - start > 100) {
-                        document.body.innerHTML = "";
-                        debugger;// Remove all elements
-                    const end = new Date();
-                    }
-                })();
+                const start = new Date();   
+                // If execution takes too long, DevTools is open
+                const end = new Date();
+                if (end - start > 100) {
+                    document.body.innerHTML = ""; // Clear all content
+                    debugger; // Open the debugger
+                }
             }, 500); // Run check every 500ms
         }
 
@@ -122,25 +125,25 @@
     
     <script>
         document.addEventListener('contextmenu', function(e) {
-          e.preventDefault();
+            e.preventDefault();
         });
     </script>
     
     <script>
         document.onkeydown = function(e) {
-if(event.keyCode == 123) {
-return false;
-}
-if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
-return false;
-}
-if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
-return false;
-}
-if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
-return false;
-}
-}
+            if (event.keyCode == 123) {
+                return false; // F12
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + I
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + J
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false; // Ctrl + U
+            }
+        }
     </script>
     
 </body>
