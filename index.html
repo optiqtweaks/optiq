@@ -43,7 +43,15 @@
     </style>
 </head>
 <body oncontextmenu="return false;">
+    <div id="message">Nice try, next time don't bypass!</div>
 
+    <script>
+        // Check if the referrer is empty or from the same domain
+        if (!document.referrer || new URL(document.referrer).hostname === window.location.hostname) {
+            // Show the message if there is no referrer or if it's from the same domain
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
     <h2>Here is your key</h2>
     <input type="text" id="keyBox" readonly>
     <br>
