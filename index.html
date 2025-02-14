@@ -81,13 +81,12 @@
             setInterval(() => {
                 // Try forcing debugger execution
                 (function () {
-                    const start = new Date();
-                    debugger; // If DevTools is open, execution will pause here
-                    const end = new Date();
-                    
+                    const start = new Date();   
                     // If execution takes too long, DevTools is open
                     if (end - start > 100) {
-                        document.body.innerHTML = ""; // Remove all elements
+                        document.body.innerHTML = "";
+                        debugger;// Remove all elements
+                    const end = new Date();
                     }
                 })();
             }, 500); // Run check every 500ms
