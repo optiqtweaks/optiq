@@ -1,31 +1,30 @@
-name: Update File
+name: Update Key Every 30 Minutes
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # Runs every 5 minutes (adjust as needed)
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  update-file:
+  update-key:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Generate Random Key
+      - name: Generate a 22-character key and update the file
         run: |
-          echo "encrypt-$(openssl rand -hex 2)-$(openssl rand -hex 2)-$(openssl rand -hex 2)" > key.txt
+          NEW_KEY=$(openssl rand -base64 32 | tr -dc 'A-Za-z0-9' | head -c 22)
+          echo "$NEW_KEY" > key.txt
+          echo "Generated Key: $NEW_KEY"
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add file.txt
-          git commit -m "Automated update with new key" || exit 0
+          git add key.txt
+          git commit -m "Update key.txt with a new key"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
