@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script data-cfasync="false" src="https://dcbbwymp1bhlf.cloudfront.net/?wbbcd=1150678"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt Tweaks Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #222; /* Dark gray input */
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        #copyMessage {
+            color: #0f0; /* Green success message */
+            display: none;
+        }
+        #message {
+            display: none;
+            font-size: 2em;
+            padding: 20px;
+            border: 2px solid #8000ff;
+            background-color: black;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <h2>Here is your tweaks key</h2>
+    <input type="text" id="keyBox" readonly>
+    <br>
+    <button onclick="copyKey()">Copy</button>
+    <p id="copyMessage">Copied!</p>
+
+    <script>
+        async function fetchKey() {
+            try {
+                let response = await fetch('tweakskey.txt');
+                let key = await response.text();
+                document.getElementById('keyBox').value = key.trim();
+            } catch (error) {
+                console.error('Error fetching key:', error);
+                document.getElementById('keyBox').value = 'Error loading key';
+            }
+        }
+
+        function copyKey() {
+            let keyBox = document.getElementById('keyBox');
+            keyBox.select();
+            keyBox.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(keyBox.value).then(() => {
+                let message = document.getElementById('copyMessage');
+                message.style.display = 'block';
+                setTimeout(() => message.style.display = 'none', 1500);
+            });
+        }
+
+        fetchKey(); // Load key on page load
+    </script>
+
+    <script>
+        function detectDevTools() {
+            setInterval(() => {
+                const start = new Date();   
+                // If execution takes too long, DevTools is open
+                const end = new Date();
+                if (end - start > 100) {
+                    document.body.innerHTML = ""; // Clear all content
+                    debugger; // Open the debugger
+                }
+            }, 500); // Run check every 500ms
+        }
+
+        detectDevTools();
+    </script>
+    
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+    
+    <script>
+        document.onkeydown = function(e) {
+            if (event.keyCode == 123) {
+                return false; // F12
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + I
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + J
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false; // Ctrl + U
+            }
+        }
+    </script>
+    
+</body>
+</html>
