@@ -64,15 +64,16 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if the referrer is empty or from the same domain
-            if (!document.referrer || new URL(document.referrer).hostname === window.location.hostname) {
-                // Hide all elements except the message
+            // Get the referrer hostname
+            let referrer = document.referrer;
+            let isValidReferrer = referrer.includes("lootdest.org");
+
+            if (!isValidReferrer) {
+                // Hide all elements except the warning message
                 hideAllExceptMessage();
-                // Show the message
                 document.getElementById('message').style.display = 'block';
             }
         });
-
     </script>
 
     <h2>Here is your key</h2>
