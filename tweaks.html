@@ -85,7 +85,7 @@
     <script>
         async function fetchKey() {
             try {
-                let response = await fetch('key.txt');
+                let response = await fetch('tweakskey.txt');
                 let key = await response.text();
                 document.getElementById('keyBox').value = key.trim();
             } catch (error) {
