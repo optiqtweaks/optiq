@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt Perm Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #222; /* Dark gray input */
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #666;
+        }
+                a.button:hover {
+            background-color: #666;
+        }
+        a.button {
+                    padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        
+        }
+        #copyMessage {
+            color: #0f0; /* Green success message */
+            display: none;
+        }
+        #message {
+            display: none;
+            font-size: 2em;
+            padding: 20px;
+            border: 2px solid #8000ff;
+            background-color: black;
+        }
+    </style>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1151119"></script>
+</head>
+<body oncontextmenu="return false;">
+    <div id="message">Nice try, next time don't bypass!</div>
+	    <script>
+        function hideAllExceptMessage() {
+            const bodyChildren = document.body.children;
+            // Loop through all body children and hide them except for the message
+            for (let element of bodyChildren) {
+                if (element.id !== 'message') {
+                    element.style.display = 'none';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the referrer hostname
+            let referrer = document.referrer;
+            let isValidReferrer = referrer.includes("loot");
+
+            if (!isValidReferrer) {
+                // Hide all elements except the warning message
+                hideAllExceptMessage();
+                document.getElementById('message').style.display = 'block';
+            }
+        });
+    </script>
+
+    <h2>Encrypt Perm Download</h2>
+    <p>Below is your ZIP File password.</p>
+    <input type="password" id="keyBox" value="encrypt87239128" readonly>
+    <br>
+    <button onclick="copyKey()">Copy Password</button>
+    <a class="button"href="https://www.mediafire.com/file/ay3a4bnlia9ziw6/Encrypt_Perm.zip/file">Download</a>
+    <p id="copyMessage">Copied!</p>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1151119"></script>
+    <script>
+        function copyKey() {
+            let keyBox = document.getElementById('keyBox');
+            keyBox.select();
+            keyBox.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(keyBox.value).then(() => {
+                let message = document.getElementById('copyMessage');
+                message.style.display = 'block';
+                setTimeout(() => message.style.display = 'none', 1500);
+            });
+        }
+
+        fetchKey(); // Load key on page load
+    </script>
+
+    <script>
+        function detectDevTools() {
+            setInterval(() => {
+                const start = new Date();   
+                // If execution takes too long, DevTools is open
+                const end = new Date();
+                if (end - start > 100) {
+                    document.body.innerHTML = ""; // Clear all content
+                    debugger; // Open the debugger
+                }
+            }, 500); // Run check every 500ms
+        }
+
+        detectDevTools();
+    </script>
+    
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+    
+    <script>
+        document.onkeydown = function(e) {
+            if (event.keyCode == 123) {
+                return false; // F12
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + I
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + J
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false; // Ctrl + U
+            }
+        }
+    </script>
+    
+</body>
+</html>
