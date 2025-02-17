@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>debugger</script>
+<script>
+    const r = p => {
+            p.preventDefault()
+        }
+          , o = () => {
+            const p = performance.now();
+            debugger ;performance.now() - p > 100 && (document.documentElement.innerHTML = "")
+        }
+<script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
