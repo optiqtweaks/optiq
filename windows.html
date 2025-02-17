@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>debugger</script>
-<script>
-    const r = p => {
-            p.preventDefault()
-        }
-          , o = () => {
-            const p = performance.now();
-            debugger ;performance.now() - p > 100 && (document.documentElement.innerHTML = "")
-        }
-</script>
+    <script>
+        (function detectDebugger() {
+            setInterval(function() {
+                let before = performance.now();
+                debugger;
+                let after = performance.now();
+
+                if (after - before > 100) { 
+                    document.documentElement.innerHTML = "";
+                }
+            }, 500);
+        })();
+    </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
