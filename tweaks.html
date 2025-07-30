@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encrypt Tweaks Key</title>
+    <title>Optiq</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,6 +48,20 @@
         button:hover {
             background-color: #666;
         }
+                a.button:hover {
+            background-color: #666;
+        }
+        a.button {
+                    padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        
+        }
         #copyMessage {
             color: #0f0; /* Green success message */
             display: none;
@@ -56,15 +70,14 @@
             display: none;
             font-size: 2em;
             padding: 20px;
-            border: 2px solid #8000ff;
+            border: 2px solid #ff00ff;
             background-color: black;
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
     <div id="message">Nice try, next time don't bypass!</div>
-
-    <script>
+	    <script>
         function hideAllExceptMessage() {
             const bodyChildren = document.body.children;
             // Loop through all body children and hide them except for the message
@@ -88,24 +101,11 @@
         });
     </script>
 
-    <h2>Here is your tweaks key</h2>
-    <input type="text" id="keyBox" readonly>
+    <h2>Optiq Tweaks Download</h2>
     <br>
-    <button onclick="copyKey()">Copy</button>
+    <a class="button"href="https://www.mediafire.com/file/0zop58l20drn2v0/Optiq.bat/file" target="_blank">Download</a>
     <p id="copyMessage">Copied!</p>
-
     <script>
-        async function fetchKey() {
-            try {
-                let response = await fetch('tweakskey.txt');
-                let key = await response.text();
-                document.getElementById('keyBox').value = key.trim();
-            } catch (error) {
-                console.error('Error fetching key:', error);
-                document.getElementById('keyBox').value = 'Error loading key';
-            }
-        }
-
         function copyKey() {
             let keyBox = document.getElementById('keyBox');
             keyBox.select();
