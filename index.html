@@ -1,1 +1,148 @@
-Encrypt's Free AI Aimbot is no longer available. Buy the paid version at https://discord.gg/sKCsDY95uu
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        (function detectDebugger() {
+            setInterval(function() {
+                let before = performance.now();
+                debugger;
+                let after = performance.now();
+
+                if (after - before > 100) { 
+                    document.documentElement.innerHTML = "";
+                }
+            }, 500);
+        })();
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optiq</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #222; /* Dark gray input */
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #666;
+        }
+                a.button:hover {
+            background-color: #666;
+        }
+        a.button {
+                    padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        
+        }
+        #copyMessage {
+            color: #0f0; /* Green success message */
+            display: none;
+        }
+        #message {
+            display: none;
+            font-size: 2em;
+            padding: 20px;
+            border: 2px solid #ff00ff;
+            background-color: black;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div id="message">Nice try, next time don't bypass!</div>
+	    <script>
+        function hideAllExceptMessage() {
+            const bodyChildren = document.body.children;
+            // Loop through all body children and hide them except for the message
+            for (let element of bodyChildren) {
+                if (element.id !== 'message') {
+                    element.style.display = 'none';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the referrer hostname
+            let referrer = document.referrer;
+            let isValidReferrer = referrer.includes("loot");
+
+            if (!isValidReferrer) {
+                // Hide all elements except the warning message
+                hideAllExceptMessage();
+                document.getElementById('message').style.display = 'block';
+            }
+        });
+    </script>
+
+    <h2>Optiq Tweaks Download</h2>
+    <br>
+    <a class="button"href="https://www.mediafire.com/file/0zop58l20drn2v0/Optiq.bat/file" target="_blank">Download</a>
+
+    <script>
+        function detectDevTools() {
+            setInterval(() => {
+                const start = new Date();   
+                // If execution takes too long, DevTools is open
+                const end = new Date();
+                if (end - start > 100) {
+                    document.body.innerHTML = ""; // Clear all content
+                    debugger; // Open the debugger
+                }
+            }, 500); // Run check every 500ms
+        }
+
+        detectDevTools();
+    </script>
+    
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+    
+    <script>
+        document.onkeydown = function(e) {
+            if (event.keyCode == 123) {
+                return false; // F12
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + I
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false; // Ctrl + Shift + J
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false; // Ctrl + U
+            }
+        }
+    </script>
+    
+</body>
+</html>
