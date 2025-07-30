@@ -104,21 +104,6 @@
     <h2>Optiq Tweaks Download</h2>
     <br>
     <a class="button"href="https://www.mediafire.com/file/0zop58l20drn2v0/Optiq.bat/file" target="_blank">Download</a>
-    <p id="copyMessage">Copied!</p>
-    <script>
-        function copyKey() {
-            let keyBox = document.getElementById('keyBox');
-            keyBox.select();
-            keyBox.setSelectionRange(0, 99999); // For mobile devices
-            navigator.clipboard.writeText(keyBox.value).then(() => {
-                let message = document.getElementById('copyMessage');
-                message.style.display = 'block';
-                setTimeout(() => message.style.display = 'none', 1500);
-            });
-        }
-
-        fetchKey(); // Load key on page load
-    </script>
 
     <script>
         function detectDevTools() {
